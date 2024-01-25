@@ -7,17 +7,23 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-gateway" />
-        <module name="microservice-libro" />
-        <module name="microservice-prestamo" />
+        <module name="microservice-buscador" />
+        <module name="microservice-operador" />
         <module name="microservice-eureka" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="microservice-libro" target="17" />
+      <module name="microservice-prestamo" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="microservice-buscador" options="-parameters" />
       <module name="microservice-eureka" options="-parameters" />
       <module name="microservice-gateway" options="-parameters" />
       <module name="microservice-libro" options="-parameters" />
+      <module name="microservice-operador" options="-parameters" />
       <module name="microservice-prestamo" options="-parameters" />
     </option>
   </component>

@@ -21,9 +21,8 @@
     <modules>
         <module>microservice-eureka</module>
         <module>microservice-gateway</module>
-        <module>microservice-libro</module>
-        <module>microservice-prestamo</module>
-        <module>microservice-gateway</module>
+        <module>microservice-operador</module>
+        <module>microservice-buscador</module>
     </modules>
 
     <properties>
