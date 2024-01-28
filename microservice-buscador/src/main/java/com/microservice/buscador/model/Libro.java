@@ -1,4 +1,4 @@
-package com.microservice.buscador.entities;
+package com.microservice.buscador.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -17,8 +17,10 @@ public class Libro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idlibro;
     private String nombre;
-    private long idautor;
+    private String idautor;
     private int anio_publicacion;
     private String codigo_isbn;
     private String imagen_portada;
+    private String sinopsis;
+    private String criticas;
 }

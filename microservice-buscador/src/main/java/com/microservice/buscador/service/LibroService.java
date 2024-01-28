@@ -1,34 +1,14 @@
 package com.microservice.buscador.service;
 
-import com.microservice.buscador.entities.Libro;
-import com.microservice.buscador.persistence.LibroRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.microservice.buscador.model.Libro;
 
 import java.util.List;
+import java.util.Optional;
 
-@Service
-public class LibroService implements ILibroService{
-
-    @Autowired
-    private LibroRepository libroRepository;
-    @Override
-    public List<Libro> findAll() {
-        return (List<Libro>) libroRepository.findAll();
-    }
-
-    @Override
-    public Libro findById(Long idlibro) {
-        return libroRepository.findById(idlibro).orElseThrow();
-    }
-
-    @Override
-    public void save(Libro libro) {
-        libroRepository.save(libro);
-    }
-
-    @Override
-    public List<Libro> findByIdAutor(Long idautor) {
-        return libroRepository.findAllByIdautor(idautor);
-    }
+public interface LibroService {
+    List<Libro> getAllLibro();
+    Optional<Libro> getByIdLibro(Long idlibro);
+    Libro createLibro(Libro libro);
+    Optional<Libro> updateLibro(Libro libro);
+    boolean removeLibro(Long idlibro);
 }
