@@ -23,4 +23,7 @@ public class Libro {
     private String imagen_portada;
     private String sinopsis;
     private String criticas;
+    private int idlibrocategoria;
+    private int cantidad_total;
+    private int cantidad_disponible;
 }

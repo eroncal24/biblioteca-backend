@@ -15,7 +15,7 @@ public class LibroServiceImpl implements LibroService {
     private LibroRepository libroRepository;
     @Override
     public List<Libro> getAllLibro() {
-        return (List<Libro>) libroRepository.findAll();
+        return libroRepository.findAll();
     }
 
     @Override
@@ -37,35 +37,23 @@ public class LibroServiceImpl implements LibroService {
     }
 
     @Override
+    public Optional<Libro> updateCantidadDispLibro(Long idlibro, int cantidad) {
+        Optional<Libro> libro = libroRepository.findById(idlibro);
+        if (libro.isPresent()) {
+            libro.get().setCantidad_disponible(cantidad);
+            return Optional.of(libroRepository.save(libro.get()));
+        } else {
+            return Optional.empty();
+        }
+    }
+
+    @Override
     public boolean removeLibro(Long idlibro) {
         if (!libroRepository.existsById(idlibro)) {
             return false;
         }
-
         libroRepository.deleteById(idlibro);
         return true;
     }
 
-
-//    @Autowired
-//    private LibroRepository libroRepository;
-//    @Override
-//    public List<Libro> findAll() {
-//        return (List<Libro>) libroRepository.findAll();
-//    }
-//
-//    @Override
-//    public Libro findById(Long idlibro) {
-//        return libroRepository.findById(idlibro).orElseThrow();
-//    }
-//
-//    @Override
-//    public void save(Libro libro) {
-//        libroRepository.save(libro);
-//    }
-//
-//    @Override
-//    public List<Libro> findByIdautor(Long idautor) {
-//        return libroRepository.findAllByIdautor(idautor);
-//    }
 }

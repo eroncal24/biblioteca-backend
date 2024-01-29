@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/libro")
+@RequestMapping("/api/buscador/libro")
 public class LibroController {
 
     @Autowired
@@ -36,14 +36,15 @@ public class LibroController {
         libroService.updateLibro(libro);
     }
 
+    @PutMapping("/updateCantidadDisp")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void updateCantidadDispLibro(@RequestBody Libro libro){
+        libroService.updateCantidadDispLibro(libro.getIdlibro(),libro.getCantidad_disponible());
+    }
+
     @DeleteMapping("/remove/{id}")
-    public ResponseEntity<Void> borrarProducto(@PathVariable Long id) {
+    public ResponseEntity<Void> removeLibro(@PathVariable Long id) {
         boolean borrado = libroService.removeLibro(id);
         return borrado ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
-
-//    @GetMapping("/search-by-autor/{idautor}")
-//    public ResponseEntity<?> findByIdautor(@PathVariable Long idautor){
-//        return ResponseEntity.ok(libroService.findByIdautor(idautor));
-//    }
 }
