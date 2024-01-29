@@ -1,6 +1,5 @@
 package com.microservice.operador.service;
 
-import com.microservice.operador.model.Cliente;
 import com.microservice.operador.model.Prestamo;
 
 import java.util.List;

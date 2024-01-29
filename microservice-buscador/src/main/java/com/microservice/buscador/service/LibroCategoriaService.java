@@ -1,6 +1,5 @@
 package com.microservice.buscador.service;
 
-import com.microservice.buscador.model.Libro;
 import com.microservice.buscador.model.LibroCategoria;
 
 import java.util.List;

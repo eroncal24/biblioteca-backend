@@ -1,7 +1,6 @@
 package com.microservice.buscador.controller;
 
 import com.microservice.buscador.model.Autor;
-import com.microservice.buscador.model.Libro;
 import com.microservice.buscador.service.AutorServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
