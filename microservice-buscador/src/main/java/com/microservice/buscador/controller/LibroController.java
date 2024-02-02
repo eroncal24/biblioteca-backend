@@ -36,10 +36,15 @@ public class LibroController {
         libroService.updateLibro(libro);
     }
 
-    @PutMapping("/updateCantidadDisp")
+    @PutMapping("/updateCantidadDisp/{id}/{cant}")
     @ResponseStatus(HttpStatus.CREATED)
-    public void updateCantidadDispLibro(@RequestBody Libro libro){
-        libroService.updateCantidadDispLibro(libro.getIdlibro(),libro.getCantidad_disponible());
+    public void updateCantidadDispLibro(@PathVariable Long id, @PathVariable int cant){
+        libroService.updateCantidadDispLibro(id,cant);
+    }
+
+    @GetMapping("/getCantidadById/{id}")
+    public ResponseEntity<?> getCantidadByIdLibro(@PathVariable Long id){
+        return ResponseEntity.ok(libroService.getCantidadByIdLibro(id));
     }
 
     @DeleteMapping("/remove/{id}")

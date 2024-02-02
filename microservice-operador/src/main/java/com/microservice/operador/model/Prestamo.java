@@ -13,11 +13,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Prestamo {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idprestamo;
-    private int idcliente;
-    private int idlibro;
+    private long idprestamo;
+    private long idcliente;
+    private long idlibro;
     private int cantidad;
     private String fecha_prestamo;
     private String fecha_devolucion;

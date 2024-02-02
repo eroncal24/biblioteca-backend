@@ -37,10 +37,18 @@ public class LibroServiceImpl implements LibroService {
     }
 
     @Override
+    public Optional<Integer> getCantidadByIdLibro(Long idlibro) {
+        if (!libroRepository.existsById(idlibro)) {
+            return Optional.empty();
+        }
+        return Optional.of(libroRepository.findById(idlibro).get().getCantidad_disponible());
+    }
+
+    @Override
     public Optional<Libro> updateCantidadDispLibro(Long idlibro, int cantidad) {
         Optional<Libro> libro = libroRepository.findById(idlibro);
         if (libro.isPresent()) {
-            libro.get().setCantidad_disponible(cantidad);
+            libro.get().setCantidad_disponible(libro.get().getCantidad_disponible()+cantidad);
             return Optional.of(libroRepository.save(libro.get()));
         } else {
             return Optional.empty();

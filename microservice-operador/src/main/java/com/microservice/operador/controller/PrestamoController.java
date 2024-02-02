@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/api/operador/prestamo")
 public class PrestamoController {
@@ -40,5 +42,15 @@ public class PrestamoController {
     public ResponseEntity<Void> removePrestamo(@PathVariable Long id) {
         boolean borrado = prestamoService.removePrestamo(id);
         return borrado ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/obtenerDetalle/{id}")
+    public ResponseEntity<?> obtenerDetallePrestamo(@PathVariable Long id){
+        return ResponseEntity.ok(prestamoService.obtenerDetallePrestamo(id));
+    }
+
+    @GetMapping("/devolverLibro/{id}")
+    public ResponseEntity<?> devolverLibroPrestamo(@PathVariable Long id){
+        return ResponseEntity.ok(prestamoService.devolverLibroPrestamo(id));
     }
 }

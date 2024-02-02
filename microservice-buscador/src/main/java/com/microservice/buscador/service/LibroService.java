@@ -10,6 +10,7 @@ public interface LibroService {
     Optional<Libro> getByIdLibro(Long idlibro);
     Libro createLibro(Libro libro);
     Optional<Libro> updateLibro(Libro libro);
-    Optional<Libro> updateCantidadDispLibro(Long idlibro, int cantidad);
+    Optional<Integer> getCantidadByIdLibro(Long idlibro);
+    Optional<Libro> updateCantidadDispLibro(Long idlibro, int cantidad_disponible);
     boolean removeLibro(Long idlibro);
 }
